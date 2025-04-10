@@ -9,9 +9,7 @@ greeting <- R6::R6Class(
 
   private = list(
 
-    name = name$new(text = internal_name),
-
-    title = title$new(text = internal_title)
+    name = name$new(text = internal_name)
   ),
 
 
@@ -19,14 +17,8 @@ greeting <- R6::R6Class(
 
     message = NULL,
 
-    initialize = \() {
+    initialize = \() { self$message = "Hello! " },
 
-      self$message = "Hello! "
-    },
-
-    greet = \() {
-
-      paste0(self$message, private$title$get_title(), private$name$get_name(), "!")
-    }
+    greet = \() { paste0(self$message, private$name$get_name(), "!") }
   )
 )
