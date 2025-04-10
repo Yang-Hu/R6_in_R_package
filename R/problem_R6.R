@@ -26,7 +26,7 @@ greeting <- R6::R6Class(
 
     greet = \() {
 
-      paste0(self$message, private$title, private$name, "!")
+      paste0(self$message, private$title$get_title(), private$name$get_name(), "!")
     }
   )
 )
